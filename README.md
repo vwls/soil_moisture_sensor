@@ -1,4 +1,3 @@
 #TE215 Soil Moisture Sensor
-
-##Hardware
+![moisture sensor and probe](soilsensor.jpg)
  
