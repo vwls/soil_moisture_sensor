@@ -1,10 +1,13 @@
 /*
-  A0 - Soil Moisture Sensor
+  TE215 Soil Moisture Sensor
+  Fletcher Bach | Dec. 2016
+  
   Connect the Soil Moisture Sensor to anolog input pin 0
 */
 
-int probe = 7;
-int moistureSensor = 0;
+const int probe = 7;
+const int moistureSensor = 0;
+const int intervalDuration = 1800000 // wait half an hour = 1800000
 
 void setup() {
 
@@ -27,6 +30,6 @@ void loop() {
 
   // Power-down the probe
   digitalWrite(probe, LOW);
-  delay(1800000); // wait half an hour
+  delay(intervalDuration); 
 
 }
