@@ -7,7 +7,8 @@
 
 const int probe = 7;
 const int moistureSensor = 0;
-const int intervalDuration = 1800000 // wait half an hour = 1800000
+//const long intervalDuration = 1800000; // wait half an hour = 1800000
+const long intervalDuration = 1000; //short duration for faster testing
 
 void setup() {
 
