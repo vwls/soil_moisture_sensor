@@ -18,16 +18,17 @@ void loop() {
   poll(0, 7, 1000);
 }
 
-void poll(int whichPin, int probePin, const long intervalDuration){
+void poll(int whichPin, int probePowerPin, long intervalDuration){
    // Power-up the probe
-  digitalWrite(probePin, HIGH);
+  pinMode(probePowerPin, OUTPUT);
+  digitalWrite(probePowerPin, HIGH);
   delay(1000);
   
-  sensorValue = analogRead(whichPin); 
+  int sensorValue = analogRead(whichPin); 
   Serial.println(sensorValue); 
   
    // Power-down the probe
-  digitalWrite(probePin, LOW);
+  digitalWrite(probePowerPin, LOW);
   delay(intervalDuration);
 }
 
