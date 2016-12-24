@@ -5,10 +5,7 @@
   Connect the Soil Moisture Sensor to anolog input pin 0
 */
 
-const int probe = 7;
-const int moistureSensor = 0;
 //const long intervalDuration = 1800000; // wait half an hour = 1800000
-const long intervalDuration = 1000; //short duration for faster testing
 
 void setup() {
 
@@ -18,19 +15,19 @@ void setup() {
 }
 
 void loop() {
-
-  // Power-up the probe and pause for the driver
-  digitalWrite(probe, HIGH);
-  delay(1000);
-
-  // read the input on analog pin 0:
-  int sensorValue = analogRead(moistureSensor);
-
-  // print out the value you read:
-  Serial.println(sensorValue);
-
-  // Power-down the probe
-  digitalWrite(probe, LOW);
-  delay(intervalDuration); 
-
+  poll(0, 7, 1000);
 }
+
+void poll(int whichPin, int probePin, const long intervalDuration){
+   // Power-up the probe
+  digitalWrite(probePin, HIGH);
+  delay(1000);
+  
+  sensorValue = analogRead(whichPin); 
+  Serial.println(sensorValue); 
+  
+   // Power-down the probe
+  digitalWrite(probePin, LOW);
+  delay(intervalDuration);
+}
+
